@@ -1,0 +1,28 @@
+{
+  "name": "drawdle-server",
+  "version": "1.0.0",
+  "description": "Server for Drawdle",
+  "main": "test.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommach591/drawdle-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tommach591/drawdle-server/issues"
+  },
+  "homepage": "https://github.com/tommach591/drawdle-server#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
+  }
+}
