@@ -6,6 +6,10 @@ const DrawingSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
+  date: {
+    type: Date,
+    required: true,
+  },
   drawHistory: {
     type: Array,
     required: true,

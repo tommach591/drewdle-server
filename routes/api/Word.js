@@ -19,7 +19,9 @@ router.get("/get", (req, res) => {
   const currentDay = new Date(currentTime.toDateString());
 
   Word.findOne({ date: currentDay })
-    .then((acc) => res.json(acc))
+    .then((word) => {
+      res.json(word);
+    })
     .catch((err) => res.status(404).json({ word_not_found: "No word" }));
 });
 
@@ -35,8 +37,8 @@ router.post("/daily", (req, res) => {
     ].toUpperCase(),
   });
 
-  newWord.save().then((post) => {
-    return res.json(post);
+  newWord.save().then((word) => {
+    return res.json(word);
   });
 });
 
