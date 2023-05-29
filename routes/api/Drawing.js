@@ -4,11 +4,11 @@ const router = express.Router();
 const Word = require("../../schemas/Word");
 const Drawing = require("../../schemas/Drawing");
 
-router.get("/get/:sort/:limit/:offset", (req, res) => {
-  const { sort, limit, offset } = req.params;
+router.get("/get/:date/:sort/:limit/:offset", (req, res) => {
+  const { date, sort, limit, offset } = req.params;
 
-  console.log(`Hit at ./api/drawing/get/${sort}/${limit}/${offset}`);
-  const currentTime = new Date();
+  console.log(`Hit at ./api/drawing/get/${date}/${sort}/${limit}/${offset}`);
+  const currentTime = new Date(date);
   const currentDay = new Date(currentTime.toDateString());
 
   Word.findOne({ date: currentDay }).then((word) => {

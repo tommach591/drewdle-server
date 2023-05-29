@@ -13,12 +13,12 @@ fs.readFile(`${process.cwd()}/assets/categories.txt`, "utf8", (err, data) => {
   categories = data.split("\r\n");
 });
 
-router.get("/get", (req, res) => {
-  console.log(`Hit at ./api/word/get`);
-  const currentTime = new Date();
-  const currentDay = new Date(currentTime.toDateString());
+router.get("/get/:date", (req, res) => {
+  const { date } = req.params;
 
-  Word.findOne({ date: currentDay })
+  console.log(`Hit at ./api/word/get/${date}`);
+
+  Word.findOne({ date: date })
     .then((word) => {
       res.json(word);
     })
