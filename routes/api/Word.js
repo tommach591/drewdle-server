@@ -10,8 +10,8 @@ fs.readFile(`${process.cwd()}/assets/categories.txt`, "utf8", (err, data) => {
     console.error(err);
     return;
   }
-  categories = data.split("\r\n");
-  console.log(data);
+  categories = data.split("\n");
+  console.log(categories);
 });
 
 router.get("/get/:date", (req, res) => {
