@@ -11,7 +11,6 @@ fs.readFile(`${process.cwd()}/assets/categories.txt`, "utf8", (err, data) => {
     return;
   }
   categories = [...data.split("\n")];
-  console.log(categories);
 });
 
 router.get("/get/:date", (req, res) => {
