@@ -10,7 +10,7 @@ fs.readFile(`${process.cwd()}/assets/categories.txt`, "utf8", (err, data) => {
     console.error(err);
     return;
   }
-  categories = data.split("\n");
+  categories = [...data.split("\n")];
   console.log(categories);
 });
 
