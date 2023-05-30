@@ -29,12 +29,14 @@ router.post("/daily", (req, res) => {
   console.log(`Hit at ./api/word/daily`);
   const currentTime = new Date();
   const currentDay = new Date(currentTime.toDateString());
+  const word =
+    categories[Math.floor(Math.random() * categories.length)].toUpperCase();
+
+  console.log(word);
 
   const newWord = new Word({
     date: currentDay,
-    word: categories[
-      Math.floor(Math.random() * categories.length)
-    ].toUpperCase(),
+    word: word,
   });
 
   newWord.save().then((word) => {
