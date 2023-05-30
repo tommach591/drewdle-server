@@ -11,6 +11,7 @@ fs.readFile(`${process.cwd()}/assets/categories.txt`, "utf8", (err, data) => {
     return;
   }
   categories = data.split("\r\n");
+  console.log(categories);
 });
 
 router.get("/get/:date", (req, res) => {
@@ -31,8 +32,6 @@ router.post("/daily", (req, res) => {
   const currentDay = new Date(currentTime.toDateString());
   const word =
     categories[Math.floor(Math.random() * categories.length)].toUpperCase();
-
-  console.log(word);
 
   const newWord = new Word({
     date: currentDay,
