@@ -17,7 +17,6 @@ router.get("/get/:date", (req, res) => {
   const { date } = req.params;
 
   console.log(`Hit at ./api/word/get/${date}`);
-
   const currentTime = new Date(date);
   const currentDay = new Date(currentTime.toDateString());
 
