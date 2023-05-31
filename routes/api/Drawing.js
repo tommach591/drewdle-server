@@ -46,16 +46,18 @@ router.post("/save", (req, res) => {
   }${currentTime.getDate()}`;
 
   Word.findOne({ date: currentDay }).then((word) => {
-    const newDrawing = new Drawing({
-      word_id: word._id,
-      date: currentTime,
-      drawHistory: drawHistory,
-      likes: 0,
-    });
+    if (word) {
+      const newDrawing = new Drawing({
+        word_id: word._id,
+        date: currentTime,
+        drawHistory: drawHistory,
+        likes: 0,
+      });
 
-    newDrawing.save().then((drawing) => {
-      return res.json(drawing);
-    });
+      newDrawing.save().then((drawing) => {
+        return res.json(drawing);
+      });
+    }
   });
 });
 
