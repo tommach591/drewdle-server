@@ -14,22 +14,24 @@ router.get("/get/:date/:sort/:limit/:offset", (req, res) => {
   }${currentTime.getDate()}`;
 
   Word.findOne({ date: currentDay }).then((word) => {
-    if (sort === "likes") {
-      Drawing.find({ word_id: word._id })
-        .sort({ likes: -1, date: -1 })
-        .skip(offset)
-        .limit(limit)
-        .then((drawings) => {
-          res.json(drawings);
-        });
-    } else {
-      Drawing.find({ word_id: word._id })
-        .sort({ date: -1 })
-        .skip(offset)
-        .limit(limit)
-        .then((drawings) => {
-          res.json(drawings);
-        });
+    if (word) {
+      if (sort === "likes") {
+        Drawing.find({ word_id: word._id })
+          .sort({ likes: -1, date: -1 })
+          .skip(offset)
+          .limit(limit)
+          .then((drawings) => {
+            res.json(drawings);
+          });
+      } else {
+        Drawing.find({ word_id: word._id })
+          .sort({ date: -1 })
+          .skip(offset)
+          .limit(limit)
+          .then((drawings) => {
+            res.json(drawings);
+          });
+      }
     }
   });
 });
