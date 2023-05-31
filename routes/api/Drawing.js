@@ -9,7 +9,9 @@ router.get("/get/:date/:sort/:limit/:offset", (req, res) => {
 
   console.log(`Hit at ./api/drawing/get/${date}/${sort}/${limit}/${offset}`);
   const currentTime = new Date(date);
-  const currentDay = new Date(currentTime.toDateString());
+  const currentDay = `${currentTime.getFullYear()}${
+    currentTime.getMonth() + 1
+  }${currentTime.getDate()}`;
 
   Word.findOne({ date: currentDay }).then((word) => {
     if (sort === "likes") {
@@ -37,7 +39,9 @@ router.post("/save", (req, res) => {
 
   console.log(`Hit at ./api/drawing/save`);
   const currentTime = new Date();
-  const currentDay = new Date(currentTime.toDateString());
+  const currentDay = `${currentTime.getFullYear()}${
+    currentTime.getMonth() + 1
+  }${currentTime.getDate()}`;
 
   Word.findOne({ date: currentDay }).then((word) => {
     const newDrawing = new Drawing({

@@ -18,7 +18,9 @@ router.get("/get/:date", (req, res) => {
 
   console.log(`Hit at ./api/word/get/${date}`);
   const currentTime = new Date(date);
-  const currentDay = new Date(currentTime.toDateString());
+  const currentDay = `${currentTime.getFullYear()}${
+    currentTime.getMonth() + 1
+  }${currentTime.getDate()}`;
 
   Word.findOne({ date: currentDay })
     .then((word) => {
@@ -30,7 +32,10 @@ router.get("/get/:date", (req, res) => {
 router.post("/daily", (req, res) => {
   console.log(`Hit at ./api/word/daily`);
   const currentTime = new Date();
-  const currentDay = new Date(currentTime.toDateString());
+  const currentDay = `${currentTime.getFullYear()}${
+    currentTime.getMonth() + 1
+  }${currentTime.getDate()}`;
+
   const word =
     categories[Math.floor(Math.random() * categories.length)].toUpperCase();
 
