@@ -18,7 +18,10 @@ router.get("/get/:date", (req, res) => {
 
   console.log(`Hit at ./api/word/get/${date}`);
 
-  Word.findOne({ date: date })
+  const currentTime = new Date(date);
+  const currentDay = new Date(currentTime.toDateString());
+
+  Word.findOne({ date: currentDay })
     .then((word) => {
       res.json(word);
     })
