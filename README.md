@@ -1,4 +1,4 @@
-# Drawdle Server
+# Drewdle Server
 Server for Drawdle
 
 ## Setup
@@ -7,4 +7,4 @@ Server for Drawdle
 2. Replace uri in index.js with your MongoDB.
 3. node .
 
-### Client @ https://github.com/tommach591/drawdle
+### Client @ https://github.com/tommach591/drewdle
