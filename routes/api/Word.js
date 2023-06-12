@@ -31,7 +31,9 @@ router.get("/get/:date", (req, res) => {
 
 router.post("/daily", (req, res) => {
   console.log(`Hit at ./api/word/daily`);
-  const currentTime = new Date();
+  const { date } = req.body;
+
+  const currentTime = new Date(date);
   const currentDay = `${currentTime.getFullYear()}${
     currentTime.getMonth() + 1
   }${currentTime.getDate()}`;
